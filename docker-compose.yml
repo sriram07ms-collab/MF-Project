@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: mf-assistant-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - SOURCE_ALLOWED_DOMAINS=${SOURCE_ALLOWED_DOMAINS:-mf.nipponindiaim.com,www.sebi.gov.in,www.amfiindia.com}
+      - DATABASE_PATH=/app/data/mf_assistant.db
+      - VECTOR_STORE_PATH=/app/data/faiss_index
+      - LAST_UPDATED=${LAST_UPDATED:-2025-11-18}
+      - EMBEDDING_MODEL=${EMBEDDING_MODEL:-sentence-transformers/all-MiniLM-L6-v2}
+    volumes:
+      - ./backend/data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build: ./frontend
+    container_name: mf-assistant-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_BASE=${NEXT_PUBLIC_API_BASE:-http://localhost:8000}
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+
+

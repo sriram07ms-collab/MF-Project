@@ -1,0 +1,15 @@
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+langchain==0.1.0
+langchain-community==0.0.10
+sentence-transformers==2.2.2
+huggingface-hub==0.24.0
+faiss-cpu==1.7.4
+beautifulsoup4==4.12.2
+requests==2.31.0
+python-dotenv==1.0.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+numpy==1.24.3
+lxml==4.9.3
+google-generativeai==0.3.2
