@@ -75,7 +75,7 @@ async def query(request: QueryRequest):
             return QueryResponse(
                 answer=validation_result["message"],
                 source="",
-                lastUpdated=os.getenv("LAST_UPDATED", "2025-11-18"),
+                lastUpdated="N/A",
                 isRefusal=True,
                 educationalLink=validation_result.get("educational_link")
             )
@@ -86,7 +86,7 @@ async def query(request: QueryRequest):
         return QueryResponse(
             answer=result["answer"],
             source=result["source"],
-            lastUpdated=os.getenv("LAST_UPDATED", "2025-11-18"),
+            lastUpdated="N/A",
             isRefusal=False
         )
     

@@ -74,7 +74,6 @@ See `DEPLOYMENT.md` for detailed deployment instructions.
 
 - **Facts-only**: This assistant provides factual information only. No investment advice.
 - **Source Links**: Every answer includes a citation to the official AMC page.
-- **Last Updated**: All responses include the date when data was last updated from sources.
 - **No PII**: The system does not collect or store any personal information.
 
 ## License
