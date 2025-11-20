@@ -6,6 +6,6 @@ sentence-transformers==2.2.2
 huggingface-hub==0.24.0
 faiss-cpu==1.8.0
 google-generativeai==0.3.2
-numpy==1.24.3
+numpy==1.26.4
 python-dotenv==1.0.0
 requests==2.31.0
